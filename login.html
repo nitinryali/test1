@@ -1,0 +1,43 @@
+<html>
+  <body>
+    <h3 align="center">LOGIN PAGE</h3>
+    <form id="registration-form">
+      <fieldset>
+        Username:<input
+          type="text"
+          id="name"
+          fname="username"
+          required
+        /><br /><br />
+        Password:<input
+          type="password"
+          id="password"
+          name="password"
+        /><br /><br />
+        <input type="submit" name="submit" value="submit" /><br /><br />
+        <a href="forgot.html">Forgot password!!</a><br /><br />
+        <a href="register.html">Sign up</a><br /><br />
+      </fieldset>
+      <br />
+    </form>
+    <script>
+      const form = document.getElementById("registration-form");
+      const name = document.getElementById("name");
+      const passwordInput = document.getElementById("password");
+
+      form.addEventListener("submit", function (event) {
+        // Prevent the form from submitting
+        event.preventDefault();
+        if (passwordInput.value.trim() === "") {
+          alert("Please enter  password.");
+          return;
+        }
+
+        alert("WELCOME  " + name.value);
+        form.submit();
+      });
+    </script>
+
+     
+  </body>
+</html>

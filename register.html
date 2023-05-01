@@ -1,0 +1,109 @@
+<html>
+  <!-- <head>
+    <style>
+      .required:after {
+        content: " *";
+        color: red;
+      }
+    </style>
+  </head> -->
+  <body>
+    <h3 align="center">REGISTRATION PAGE</h3>
+    <form id="registration-form">
+      <fieldset>
+        <label class="required"> Username:</label
+        ><input type="text" id="name" name="name" required /><br /><br />
+        Email:<input type="email" id="email" name="email" /><br /><br />
+        Gender:<input type="radio" name="gender" required />male
+        <input type="radio" name="gender" />female<br /><br />
+        DOB:<input type="date" fname="dob" required /><br /><br />
+        Age:<input
+          type="number"
+          fname="age"
+          min="15"
+          max="50"
+          required
+        /><br /><br />
+        Mobile:<input
+          type="tel"
+          id="phone"
+          name="phone"
+          pattern="^[6-9][0-9]{9}$"
+          required
+        /><br /><br />
+        Address:<br /><textarea></textarea><br /><br />
+        <br />
+        Password:<input
+          type="password"
+          id="password1"
+          name="password"
+          required
+        /><br /><br />
+        Confirm Password:<input
+          type="password"
+          id="password2"
+          name="confirm password"
+          required
+        /><br /><br />
+        Terms and conditions:<input
+          type="checkbox"
+          name="terms"
+          required
+        /><br />
+        <br />
+      <input type="submit" name="submit" value="submit" />
+      </fieldset>
+      
+    </form>
+    <script>
+      const form = document.getElementById("registration-form");
+      const nameInput = document.getElementById("name");
+      const emailInput = document.getElementById("email");
+      const passwordInput1 = document.getElementById("password1");
+      const passwordInput2 = document.getElementById("password2");
+
+      form.addEventListener("submit", function (event) {
+        // Prevent the form from submitting
+        event.preventDefault();
+
+        // Check name field
+        if (nameInput.value.trim() === "") {
+          alert("Please enter your name.");
+          return;
+        }
+
+        // Check email field
+        if (emailInput.value.trim() === "") {
+          alert("Please enter your email address.");
+          return;
+        }
+
+        // Check password field
+        if (passwordInput1.value.trim() === "") {
+          alert("Please enter a password.");
+          return;
+        }
+        if (passwordInput2.value.trim() === "") {
+          alert("Please re-enter  password.");
+          return;
+        }
+        if (passwordInput1.value.length <= 5) {
+          alert("Password length should be greater than 5");
+          return;
+        }
+        if (passwordInput1.value.length >= 10) {
+          alert("Password length should be less than 10");
+          return;
+        }
+        if (passwordInput1.value != passwordInput2.value) {
+          alert("Passwords did not match");
+          return;
+        }
+
+        // Submit the form if all fields are valid
+        alert("Form submitted!");
+        form.submit();
+      });
+    </script>
+  </body>
+</html>
